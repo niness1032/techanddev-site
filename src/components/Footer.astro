@@ -1,0 +1,92 @@
+---
+import { SITE, NAV, PRODUCTS } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-line bg-surface/60 mt-32 border-t">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-12 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <p class="text-[15px] font-semibold tracking-tight">{SITE.name}</p>
+        <p class="text-muted mt-3 max-w-sm text-[14px] leading-relaxed">
+          {SITE.description}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-muted text-[13px] font-medium tracking-wide uppercase">
+          Products
+        </p>
+        <ul class="mt-4 space-y-2.5">
+          {
+            PRODUCTS.map((product) => (
+              <li>
+                <a
+                  href={`/products/${product.slug}`}
+                  class="text-ink text-[14px] transition-opacity hover:opacity-60"
+                >
+                  {product.name}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href="/products"
+              class="text-muted text-[14px] transition-opacity hover:opacity-60"
+            >
+              All products
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-muted text-[13px] font-medium tracking-wide uppercase">
+          Company
+        </p>
+        <ul class="mt-4 space-y-2.5">
+          {
+            NAV.filter((item) => item.href !== '/products').map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-ink text-[14px] transition-opacity hover:opacity-60"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href="/privacy"
+              class="text-ink text-[14px] transition-opacity hover:opacity-60"
+              >Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a
+              href="/terms"
+              class="text-ink text-[14px] transition-opacity hover:opacity-60"
+              >Terms of Service</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="border-line text-muted mt-14 flex flex-col gap-4 border-t pt-8 text-[13px] sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>&copy; {year} {SITE.legalName}. All rights reserved.</p>
+      <p class="flex flex-col gap-1 sm:flex-row sm:gap-6">
+        <span>{SITE.location}</span>
+        <a
+          href={`mailto:${SITE.email}`}
+          class="text-ink transition-opacity hover:opacity-60">{SITE.email}</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>

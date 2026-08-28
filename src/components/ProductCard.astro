@@ -1,0 +1,42 @@
+---
+interface Props {
+  slug: string;
+  name: string;
+  platform: string;
+  status: string;
+  tagline: string;
+  summary: string;
+}
+const { slug, name, platform, status, tagline, summary } = Astro.props;
+---
+
+<a
+  href={`/products/${slug}`}
+  class="group border-line bg-surface/50 hover:border-ink/15 hover:bg-surface flex flex-col justify-between rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-0.5 md:p-10"
+>
+  <div>
+    <div class="flex flex-wrap items-center gap-2.5">
+      <span
+        class="border-line bg-canvas text-muted rounded-full border px-3 py-1 text-[12px] font-medium"
+        >{platform}</span
+      >
+      <span
+        class="bg-ink text-canvas rounded-full px-3 py-1 text-[12px] font-medium"
+        >{status}</span
+      >
+    </div>
+    <h3 class="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
+      {name}
+    </h3>
+    <p class="text-ink/80 mt-3 text-[17px] leading-relaxed">{tagline}</p>
+    <p class="text-muted mt-4 text-[15px] leading-relaxed">{summary}</p>
+  </div>
+  <span
+    class="text-ink mt-8 inline-flex items-center gap-1.5 text-[14px] font-medium"
+  >
+    Learn more
+    <span class="transition-transform duration-300 group-hover:translate-x-1"
+      >&rarr;</span
+    >
+  </span>
+</a>

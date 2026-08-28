@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { SITE, PRODUCTS } from '../consts';
+
+const principles = [
+  {
+    title: 'Native, not wrapped',
+    body: 'Our applications are built with Swift and the frameworks Apple ships. They launch instantly, respect system settings, and feel like they belong on the platform.',
+  },
+  {
+    title: 'Privacy by design',
+    body: 'We collect no analytics, build no user profiles, and sell nothing to anyone. What happens on your machine stays on your machine.',
+  },
+  {
+    title: 'Small and focused',
+    body: 'Each product does one job properly instead of a dozen jobs approximately. Fewer features, fewer settings, less to think about.',
+  },
+];
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 pt-40 pb-24 md:pt-52 md:pb-32">
+    <p
+      class="text-muted mb-6 text-[13px] font-medium tracking-[0.14em] uppercase"
+    >
+      Independent software studio &middot; Colorado
+    </p>
+    <h1
+      class="max-w-4xl text-5xl leading-[1.05] font-semibold tracking-[-0.035em] text-balance md:text-7xl"
+    >
+      Native software for Apple platforms.
+    </h1>
+    <p class="text-muted mt-8 max-w-2xl text-lg leading-relaxed md:text-xl">
+      {SITE.legalName} designs and develops focused utilities for macOS and iOS —
+      tools that do one thing well, respect your privacy, and stay out of your way.
+    </p>
+    <div class="mt-11 flex flex-wrap items-center gap-3">
+      <a
+        href="/products"
+        class="bg-ink text-canvas rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
+      >
+        View products
+      </a>
+      <a
+        href="/about"
+        class="border-line bg-canvas text-ink hover:bg-surface rounded-full border px-7 py-3.5 text-[15px] font-medium transition-colors"
+      >
+        About the company
+      </a>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="border-line bg-surface/40 border-y">
+    <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <h2
+        class="max-w-2xl text-3xl leading-tight font-semibold tracking-[-0.025em] md:text-4xl"
+      >
+        How we build.
+      </h2>
+      <div class="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
+        {
+          principles.map((item, i) => (
+            <div>
+              <span class="text-muted text-[13px] font-medium tracking-wider">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 class="mt-4 text-xl font-semibold tracking-tight">
+                {item.title}
+              </h3>
+              <p class="text-muted mt-3 text-[15px] leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <div
+      class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+    >
+      <div>
+        <h2
+          class="text-3xl leading-tight font-semibold tracking-[-0.025em] md:text-4xl"
+        >
+          What we are working on.
+        </h2>
+        <p class="text-muted mt-4 max-w-xl text-[17px] leading-relaxed">
+          Our first application is in active development. More will follow.
+        </p>
+      </div>
+      <a
+        href="/products"
+        class="text-ink text-[15px] font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+      >
+        All products
+      </a>
+    </div>
+
+    <div
+      class:list={[
+        'mt-12 grid gap-6',
+        PRODUCTS.length > 1 ? 'md:grid-cols-2' : 'md:grid-cols-1',
+      ]}
+    >
+      {PRODUCTS.map((product) => <ProductCard {...product} />)}
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="mx-auto max-w-6xl px-6 pb-8">
+    <div
+      class="border-line bg-surface/60 rounded-2xl border px-8 py-16 text-center md:px-16 md:py-20"
+    >
+      <h2
+        class="mx-auto max-w-2xl text-3xl leading-tight font-semibold tracking-[-0.025em] text-balance md:text-4xl"
+      >
+        Questions, feedback, or a partnership in mind?
+      </h2>
+      <p class="text-muted mx-auto mt-5 max-w-xl text-[17px] leading-relaxed">
+        We read every message and usually reply within two business days.
+      </p>
+      <a
+        href="/support"
+        class="bg-ink text-canvas mt-9 inline-block rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
+      >
+        Get in touch
+      </a>
+    </div>
+  </section>
+</Base>

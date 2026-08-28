@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { SITE } from '../consts';
+
+const facts = [
+  { label: 'Legal entity', value: SITE.legalName },
+  { label: 'Founded', value: String(SITE.founded) },
+  { label: 'Location', value: SITE.location },
+  { label: 'Platforms', value: 'macOS, iOS' },
+];
+---
+
+<Base
+  title="About"
+  description={`About ${SITE.legalName} — an independent software company based in Colorado, United States.`}
+>
+  <PageHeader
+    eyebrow="About"
+    title="A small company that builds software carefully."
+    lead={`${SITE.legalName} is an independent software developer registered in Colorado, United States. We design, build and support our own applications for Apple platforms.`}
+  />
+
+  <section class="mx-auto max-w-6xl px-6 pb-8">
+    <div class="grid gap-16 md:grid-cols-3">
+      <div
+        class="text-muted space-y-6 text-[17px] leading-relaxed md:col-span-2"
+      >
+        <p>
+          The company was founded on a simple observation: most of the software
+          we use every day asks for far more than it gives back. It wants an
+          account, a subscription, a notification budget and a share of
+          attention, in exchange for a job that a well-made utility could do
+          quietly in the background.
+        </p>
+        <p>
+          We build the other kind of software. Our applications are native,
+          small, and written for people who care how their machine behaves. They
+          do not phone home, they do not collect analytics, and they do not
+          require an account to work.
+        </p>
+        <p>
+          Our team comes from systems administration and infrastructure work —
+          years spent keeping other people's machines running. That background
+          shapes what we make: tools built by the people who need them, tested
+          against real daily use rather than a feature checklist.
+        </p>
+        <p>
+          Our first product, a VPN management utility for macOS, is in active
+          development. Further applications for macOS and iOS are planned. Every
+          product we ship is distributed through the App Store and supported
+          directly by the people who wrote it.
+        </p>
+      </div>
+
+      <aside class="border-line bg-surface/50 rounded-2xl border p-8">
+        <h2
+          class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase"
+        >
+          Company details
+        </h2>
+        <dl class="mt-6 space-y-5 text-[15px]">
+          {
+            facts.map((fact) => (
+              <div>
+                <dt class="text-muted">{fact.label}</dt>
+                <dd class="mt-1 font-medium">{fact.value}</dd>
+              </div>
+            ))
+          }
+          <div>
+            <dt class="text-muted">Contact</dt>
+            <dd class="mt-1 font-medium">
+              <a
+                href={`mailto:${SITE.email}`}
+                class="underline underline-offset-4 transition-opacity hover:opacity-60"
+                >{SITE.email}</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</Base>

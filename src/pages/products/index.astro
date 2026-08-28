@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { PRODUCTS } from '../../consts';
+---
+
+<Base
+  title="Products"
+  description="Applications built by TechAndDev LLC for macOS and iOS."
+>
+  <PageHeader
+    eyebrow="Products"
+    title="Tools we make for macOS and iOS."
+    lead="Every product below is designed, developed and supported in-house. We release when a thing is genuinely ready, not when a calendar says so."
+  />
+
+  <section class="mx-auto max-w-6xl px-6 pb-8">
+    <div class="grid gap-6 md:grid-cols-2">
+      {PRODUCTS.map((product) => <ProductCard {...product} />)}
+
+      <div
+        class="border-line flex flex-col justify-center rounded-2xl border border-dashed p-10 text-center"
+      >
+        <h3 class="text-xl font-semibold tracking-tight">More in progress</h3>
+        <p class="text-muted mx-auto mt-3 max-w-xs text-[15px] leading-relaxed">
+          Additional macOS and iOS applications are in development. Write to us
+          if you would like to hear about them first.
+        </p>
+        <a
+          href="/support"
+          class="text-ink mt-6 text-[14px] font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+        >
+          Contact us
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
