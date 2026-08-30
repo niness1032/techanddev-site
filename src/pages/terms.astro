@@ -1,17 +1,17 @@
 ---
 /**
- * TERMS OF SERVICE — template. Have a lawyer review before you rely on it.
+ * TERMS OF SERVICE. A template. Have a lawyer review it before you rely on it.
  */
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { SITE } from '../consts';
 
-const updated = 'August 28, 2026';
+const updated = 'August 30, 2026';
 ---
 
 <Base
   title="Terms of Service"
-  description={`Terms governing the use of the ${SITE.legalName} website and applications.`}
+  description={`Terms governing the use of the ${SITE.legalName} website and software.`}
 >
   <PageHeader
     eyebrow={`Last updated ${updated}`}
@@ -38,19 +38,26 @@ const updated = 'August 28, 2026';
 
       <h2>Software licences</h2>
       <p>
-        Applications distributed through the App Store are licensed to you, not
-        sold, under the terms presented at the point of download, together with
-        Apple's Licensed Application End User License Agreement where
-        applicable. You may not decompile, reverse engineer or redistribute our
-        software except to the extent that applicable law expressly permits it.
+        Applications distributed through an application store are licensed to
+        you, not sold, under the terms presented at the point of download,
+        together with any end user licence agreement that the store requires.
+        You may not decompile, reverse engineer or redistribute our software
+        except to the extent that applicable law expressly permits it.
+      </p>
+
+      <h2>Client work</h2>
+      <p>
+        Software and services we build for a client are governed by the separate
+        written agreement with that client. Nothing on this page replaces or
+        modifies such an agreement.
       </p>
 
       <h2>Intellectual property</h2>
       <p>
-        All content on this website — text, design, graphics, code and the
-        {SITE.name} name and logo — is the property of {SITE.legalName} and is protected
-        by copyright and trademark law. Nothing on this site grants you a licence
-        to use those marks.
+        All content on this website, including text, design, graphics, code and
+        the {SITE.name} name and logo, is the property of {SITE.legalName} and is
+        protected by copyright and trademark law. Nothing on this site grants you
+        a licence to use those marks.
       </p>
 
       <h2>Availability</h2>
@@ -62,10 +69,10 @@ const updated = 'August 28, 2026';
 
       <h2>Disclaimer of warranties</h2>
       <p>
-        This website and our software are provided "as is" and "as available",
+        This website and our software are provided as is and as available,
         without warranties of any kind, whether express or implied, including
         but not limited to warranties of merchantability, fitness for a
-        particular purpose and non-infringement, to the maximum extent permitted
+        particular purpose and non infringement, to the maximum extent permitted
         by law.
       </p>
 
@@ -85,13 +92,13 @@ const updated = 'August 28, 2026';
       <h2>Changes</h2>
       <p>
         We may update these terms from time to time. The date at the top of this
-        page indicates when they were last revised. Continued use of the site
-        after a change constitutes acceptance of the revised terms.
+        page shows when they were last revised. Continued use of the site after
+        a change means you accept the revised terms.
       </p>
 
       <h2>Contact</h2>
       <p>
-        Questions about these terms may be sent to
+        Questions about these terms can be sent to
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
       </p>
     </div>

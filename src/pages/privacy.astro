@@ -2,17 +2,17 @@
 /**
  * PRIVACY POLICY.
  *
- * This is an honest starting point for a marketing site that collects nothing.
- * Two things to do before shipping an app:
- *   1. Have a lawyer review it — this is a template, not legal advice.
- *   2. Add a per-app section describing exactly what that app collects.
+ * A starting point for a marketing site that collects nothing. Two things to do
+ * before shipping a product:
+ *   1. Have a lawyer review it. This is a template, not legal advice.
+ *   2. Add a section for each application describing exactly what it collects.
  *      For VPN apps Apple checks this closely (App Store Review Guideline 5.4).
  */
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { SITE } from '../consts';
 
-const updated = 'August 28, 2026';
+const updated = 'August 30, 2026';
 ---
 
 <Base
@@ -22,63 +22,65 @@ const updated = 'August 28, 2026';
   <PageHeader
     eyebrow={`Last updated ${updated}`}
     title="Privacy Policy"
-    lead={`This policy explains what information ${SITE.legalName} collects, why, and what we do with it. The short version: as little as possible, and never for sale.`}
+    lead={`This policy explains what information ${SITE.legalName} collects, why, and what happens to it.`}
   />
 
   <section class="mx-auto max-w-3xl px-6 pb-8">
     <div class="legal">
       <h2>Who we are</h2>
       <p>
-        {SITE.legalName} ("we", "us") is a limited liability company registered in
-        Colorado, United States. You can reach us at
+        {SITE.legalName} is a limited liability company registered in Colorado, United
+        States. You can reach us at
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
       </p>
 
       <h2>This website</h2>
       <p>
-        This website does not use cookies, advertising trackers or third-party
+        This website does not use cookies, advertising trackers or third party
         analytics. We do not build profiles of visitors and we do not embed
-        third-party scripts that would allow others to do so. Fonts are served
-        from our own servers rather than a third-party font service.
+        third party scripts that would allow others to do so. Fonts are served
+        from our own servers rather than from a font service.
       </p>
       <p>
         Our hosting provider keeps standard server logs, which may include your
-        IP address, the page requested, and your browser's user agent. These
-        logs are used to operate and secure the site and are retained only for a
-        short period.
+        IP address, the page requested and your browser user agent. Those logs
+        are used to operate and secure the site and are kept only for a short
+        period.
       </p>
 
       <h2>When you contact us</h2>
       <p>
-        If you email us, we receive your address, your message, and anything you
-        choose to include in it. We use that information solely to answer you
-        and to keep a record of the conversation. We do not add you to a mailing
-        list without your explicit request.
+        If you email us, we receive your address, your message and anything you
+        choose to include in it. We use that information to answer you and to
+        keep a record of the conversation. We do not add you to a mailing list
+        unless you ask us to.
       </p>
 
       <h2>Our applications</h2>
       <p>
-        Our applications are designed to work without an account and without
-        sending your data to us. Where an application needs to handle
-        information to do its job, that processing happens on your device.
+        Each application we publish has its own privacy disclosure in the store
+        it is distributed through. Specific details will be added to this page
+        as products are released. We do not sell, rent or share personal
+        information with third parties for their own purposes.
       </p>
+
+      <h2>Client projects</h2>
       <p>
-        Each application published by us has its own privacy disclosure in the
-        App Store, and specific details will be added to this page as products
-        are released. We do not sell, rent or share personal information with
-        third parties for their own purposes.
+        When we build software or automation for a client, any personal data
+        involved belongs to that client. We process it only as far as the work
+        requires, under the terms of the agreement with them, and we do not use
+        it for anything else.
       </p>
 
       <h2>Payments</h2>
       <p>
-        Purchases made through the App Store are handled by Apple. We never see
-        or store your payment card details. Apple's own privacy policy governs
-        that transaction.
+        Purchases made through an application store are handled by that store.
+        We never see or store your payment card details.
       </p>
 
       <h2>Your rights</h2>
       <p>
-        Depending on where you live, you may have the right to request access to
+        Depending on where you live, you may have the right to ask for access to
         the personal information we hold about you, to have it corrected or
         deleted, or to object to its processing. Write to
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a> and we will respond within
@@ -87,7 +89,7 @@ const updated = 'August 28, 2026';
 
       <h2>Children</h2>
       <p>
-        Our products are not directed at children under 13, and we do not
+        Our products are not directed at children under 13 and we do not
         knowingly collect personal information from them.
       </p>
 

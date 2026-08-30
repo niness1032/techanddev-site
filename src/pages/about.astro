@@ -7,18 +7,18 @@ const facts = [
   { label: 'Legal entity', value: SITE.legalName },
   { label: 'Founded', value: String(SITE.founded) },
   { label: 'Location', value: SITE.location },
-  { label: 'Platforms', value: 'macOS, iOS' },
+  { label: 'Platforms', value: 'Desktop, mobile, web' },
 ];
 ---
 
 <Base
   title="About"
-  description={`About ${SITE.legalName} — an independent software company based in Colorado, United States.`}
+  description={`About ${SITE.legalName}, a software development organization registered in Colorado, United States.`}
 >
   <PageHeader
     eyebrow="About"
-    title="A small company that builds software carefully."
-    lead={`${SITE.legalName} is an independent software developer registered in Colorado, United States. We design, build and support our own applications for Apple platforms.`}
+    title="About the company."
+    lead={`${SITE.legalName} is a software development organization registered in Colorado, United States.`}
   />
 
   <section class="mx-auto max-w-6xl px-6 pb-8">
@@ -27,33 +27,35 @@ const facts = [
         class="text-muted space-y-6 text-[17px] leading-relaxed md:col-span-2"
       >
         <p>
-          The company was founded on a simple observation: most of the software
-          we use every day asks for far more than it gives back. It wants an
-          account, a subscription, a notification budget and a share of
-          attention, in exchange for a job that a well-made utility could do
-          quietly in the background.
+          The organization works in three areas: software development,
+          automation of business processes, and AI agents. We develop our own
+          products and take on projects for clients.
         </p>
         <p>
-          We build the other kind of software. Our applications are native,
-          small, and written for people who care how their machine behaves. They
-          do not phone home, they do not collect analytics, and they do not
-          require an account to work.
+          Development covers desktop and mobile applications as well as web
+          services. We handle the whole cycle: requirements, design, build,
+          release, and support once the product is live. We are not tied to a
+          single platform and choose the technology that fits the task.
         </p>
         <p>
-          Our team comes from systems administration and infrastructure work —
-          years spent keeping other people's machines running. That background
-          shapes what we make: tools built by the people who need them, tested
-          against real daily use rather than a feature checklist.
+          Automation work usually begins with something a company already does
+          by hand every week. We connect the systems that are already in place,
+          move data between them and take the repeated steps out of the process.
         </p>
         <p>
-          Our first product, a VPN management utility for macOS, is in active
-          development. Further applications for macOS and iOS are planned. Every
-          product we ship is distributed through the App Store and supported
-          directly by the people who wrote it.
+          AI agents are the newest of the three areas. We build agents that
+          process documents, answer questions from an internal knowledge base
+          and prepare incoming requests so that people only deal with the part
+          that needs a decision.
+        </p>
+        <p>
+          Alongside client work we develop our own applications. The first of
+          them is VPN List, a VPN client for macOS, currently in development.
+          Details are on the products page.
         </p>
       </div>
 
-      <aside class="border-line bg-surface/50 rounded-2xl border p-8">
+      <aside class="border-line bg-surface/50 h-fit rounded-2xl border p-8">
         <h2
           class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase"
         >

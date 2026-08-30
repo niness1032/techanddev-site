@@ -6,31 +6,31 @@ import { SITE } from '../consts';
 const topics = [
   {
     title: 'Product support',
-    body: 'Something not working as it should? Tell us which application and version you are using, your macOS or iOS version, and what you expected to happen.',
+    body: 'Something not working as it should? Tell us which application and version you are using, your operating system version, and what you expected to happen.',
+  },
+  {
+    title: 'Projects and estimates',
+    body: 'Describe the task. We will tell you whether we can take it on, roughly how long it would take and what it would cost.',
   },
   {
     title: 'Feature requests',
-    body: 'We keep a list and read all of it. Concrete descriptions of the problem you are trying to solve are more useful to us than proposed solutions.',
+    body: 'We keep a list of these and read all of it. A description of the problem you are trying to solve is more useful to us than a proposed solution.',
   },
   {
     title: 'Privacy and legal',
-    body: 'Questions about how we handle data, or requests relating to your personal information, go to the same address and are answered by a person.',
-  },
-  {
-    title: 'Business enquiries',
-    body: 'Partnerships, press, licensing and everything else that is not covered above.',
+    body: 'Questions about how we handle data, and requests relating to your personal information, go to the same address.',
   },
 ];
 ---
 
 <Base
   title="Support"
-  description={`Contact ${SITE.legalName} for product support, feature requests or business enquiries.`}
+  description={`Contact ${SITE.legalName} about products, projects or support.`}
 >
   <PageHeader
     eyebrow="Support"
-    title="Talk to the people who build the software."
-    lead="There is no ticket system and no chatbot. Messages go straight to the team and are usually answered within two business days."
+    title="Get in touch."
+    lead="Messages go straight to the people who do the work. We answer within two business days."
   />
 
   <section class="mx-auto max-w-6xl px-6 pb-8">
@@ -47,7 +47,7 @@ const topics = [
         {SITE.email}
       </a>
       <p class="text-muted mt-6 text-[15px] leading-relaxed">
-        {SITE.legalName} &middot; {SITE.location}
+        {SITE.legalName}, {SITE.location}
       </p>
     </div>
 

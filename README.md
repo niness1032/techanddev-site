@@ -1,7 +1,7 @@
-# TechAndDev — company website
+# TechAndDev company website
 
 Marketing site for **TechAndDev LLC**. Built with [Astro](https://astro.build) +
-[Tailwind CSS v4](https://tailwindcss.com). Fully static — no server, no database,
+[Tailwind CSS v4](https://tailwindcss.com). Fully static: no server, no database,
 no third-party scripts.
 
 ---
@@ -36,7 +36,7 @@ Search for `TODO` before going live.
 ### Adding a product
 
 1. Add an entry to `PRODUCTS` in `src/consts.ts` (the `slug` becomes the URL).
-2. Create `src/pages/products/<slug>.astro` — copy `vpn-list.astro` as a starting point.
+2. Create `src/pages/products/<slug>.astro`, copying `vpn-list.astro` as a starting point.
 
 That's it: the home page, products index and footer pick it up automatically.
 
@@ -47,7 +47,7 @@ That's it: the home page, products index and footer pick it up automatically.
 Apple rejects organization enrollments whose website has "minimal content".
 Check all of these first:
 
-- [ ] Domain registered and pointing at the site (`techanddev.com` or similar —
+- [ ] Domain registered and pointing at the site (`techanddev.com` or similar -
       it must be recognisably related to _TechAndDev LLC_).
 - [ ] `site:` updated in `astro.config.mjs` and in `public/robots.txt`.
 - [ ] A real mailbox on the company domain (`support@yourdomain`), set in
@@ -65,7 +65,7 @@ Check all of these first:
 
 ## Deploying
 
-### Cloudflare Pages (recommended — free, fast, free SSL)
+### Cloudflare Pages (recommended: free, fast, free SSL)
 
 1. Push this folder to a GitHub repository.
 2. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** →
@@ -80,7 +80,7 @@ Check all of these first:
 ### Vercel
 
 Import the repo at [vercel.com/new](https://vercel.com/new). Vercel detects Astro
-automatically — no settings to change. Add the domain under
+automatically, so there are no settings to change. Add the domain under
 **Settings → Domains**.
 
 ### Anywhere else
@@ -93,7 +93,7 @@ static host (Netlify, GitHub Pages, S3, nginx).
 ## Notes
 
 - The Inter font is bundled with the site (`@fontsource-variable/inter`) rather
-  than loaded from Google Fonts — no external requests, which keeps the privacy
+  than loaded from Google Fonts, so there are no external requests. That keeps the privacy
   claims on the site truthful.
 - No cookies, no analytics, no tracking scripts. If you later add analytics, pick
   something cookieless (Plausible, Fathom) and update `src/pages/privacy.astro`

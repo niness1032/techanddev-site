@@ -1,29 +1,43 @@
 ---
 /**
- * PRODUCT PAGE — PLACEHOLDER.
+ * PRODUCT PAGE.
  *
- * The copy below is deliberately short and honest: the app is in development.
- * Before submitting the site with an App Store review, fill in:
- *   1. a real feature list (3–5 items),
- *   2. at least one screenshot in /public/screenshots/,
- *   3. system requirements,
- *   4. the download or App Store link.
+ * The application is still in development. Before submitting the site for an
+ * Apple review, add:
+ *   1. at least one screenshot in /public/screenshots/,
+ *   2. system requirements (minimum macOS version),
+ *   3. the download or App Store link.
  */
 import Base from '../../layouts/Base.astro';
 import { PRODUCTS, SITE } from '../../consts';
 
 const product = PRODUCTS.find((p) => p.slug === 'vpn-list')!;
+
+const features = [
+  {
+    title: 'Several profiles at once',
+    body: 'Connect more than one profile at the same time instead of switching between them one by one.',
+  },
+  {
+    title: 'WireGuard, OpenVPN and more',
+    body: 'Support for the protocols people actually use, handled by a single application rather than several.',
+  },
+  {
+    title: 'Every profile in one list',
+    body: 'All connections in one place, with the state of each one visible at a glance.',
+  },
+];
 ---
 
 <Base
   title={product.name}
-  description={`${product.name} — ${product.tagline} A macOS utility by ${SITE.legalName}.`}
+  description={`${product.name}. ${product.tagline} A macOS application by ${SITE.legalName}.`}
 >
   <section class="mx-auto max-w-6xl px-6 pt-40 pb-16 md:pt-48">
     <a
       href="/products"
       class="text-muted text-[14px] transition-opacity hover:opacity-60"
-      >&larr; Products</a
+      >Back to products</a
     >
 
     <div class="mt-8 flex flex-wrap items-center gap-2.5">
@@ -47,7 +61,7 @@ const product = PRODUCTS.find((p) => p.slug === 'vpn-list')!;
     </p>
   </section>
 
-  <!-- Screenshot placeholder — replace with a real image once the app has a UI. -->
+  <!-- Screenshot placeholder. Replace with a real image once the app has a UI. -->
   <section class="mx-auto max-w-6xl px-6">
     <div
       class="border-line bg-surface/60 flex aspect-[16/9] items-center justify-center rounded-2xl border"
@@ -60,26 +74,44 @@ const product = PRODUCTS.find((p) => p.slug === 'vpn-list')!;
     <div class="grid gap-14 md:grid-cols-3">
       <div class="md:col-span-2">
         <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
-          In development
+          What it does
         </h2>
         <p class="text-muted mt-5 max-w-2xl text-[17px] leading-relaxed">
           {product.summary}
         </p>
-        <p class="text-muted mt-5 max-w-2xl text-[17px] leading-relaxed">
-          {product.name} is being built right now. Detailed features, screenshots
-          and system requirements will appear on this page ahead of the first release.
-          If you would like to be notified when it ships, or you want to take part
-          in beta testing, send us a note.
-        </p>
-        <a
-          href="/support"
-          class="bg-ink text-canvas mt-9 inline-block rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
-        >
-          Ask about the beta
-        </a>
+
+        <div class="mt-12 space-y-10">
+          {
+            features.map((feature) => (
+              <div class="max-w-2xl">
+                <h3 class="text-xl font-semibold tracking-tight">
+                  {feature.title}
+                </h3>
+                <p class="text-muted mt-3 text-[16px] leading-relaxed">
+                  {feature.body}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="border-line mt-12 max-w-2xl border-t pt-8">
+          <p class="text-muted text-[16px] leading-relaxed">
+            The application is in development. Screenshots, system requirements
+            and a release date will appear on this page as the work progresses.
+            Write to us if you want to know when it ships or take part in
+            testing.
+          </p>
+          <a
+            href="/support"
+            class="bg-ink text-canvas mt-8 inline-block rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
+          >
+            Ask about testing
+          </a>
+        </div>
       </div>
 
-      <aside class="border-line bg-surface/50 rounded-2xl border p-8">
+      <aside class="border-line bg-surface/50 h-fit rounded-2xl border p-8">
         <h3
           class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase"
         >
@@ -91,12 +123,12 @@ const product = PRODUCTS.find((p) => p.slug === 'vpn-list')!;
             <dd class="mt-1 font-medium">{product.platform}</dd>
           </div>
           <div>
-            <dt class="text-muted">Status</dt>
-            <dd class="mt-1 font-medium">{product.status}</dd>
+            <dt class="text-muted">Protocols</dt>
+            <dd class="mt-1 font-medium">WireGuard, OpenVPN and others</dd>
           </div>
           <div>
-            <dt class="text-muted">Distribution</dt>
-            <dd class="mt-1 font-medium">Mac App Store</dd>
+            <dt class="text-muted">Status</dt>
+            <dd class="mt-1 font-medium">{product.status}</dd>
           </div>
           <div>
             <dt class="text-muted">Developer</dt>

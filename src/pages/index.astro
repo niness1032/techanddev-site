@@ -3,18 +3,18 @@ import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { SITE, PRODUCTS } from '../consts';
 
-const principles = [
+const services = [
   {
-    title: 'Native, not wrapped',
-    body: 'Our applications are built with Swift and the frameworks Apple ships. They launch instantly, respect system settings, and feel like they belong on the platform.',
+    title: 'Software development',
+    body: 'Applications for desktop and mobile, and web services. We take a product from the first draft through to release, and keep supporting it afterwards.',
   },
   {
-    title: 'Privacy by design',
-    body: 'We collect no analytics, build no user profiles, and sell nothing to anyone. What happens on your machine stays on your machine.',
+    title: 'Automation',
+    body: 'We remove manual steps from processes that repeat. Moving data between systems, generating reports, sending notifications, connecting services that do not integrate out of the box.',
   },
   {
-    title: 'Small and focused',
-    body: 'Each product does one job properly instead of a dozen jobs approximately. Fewer features, fewer settings, less to think about.',
+    title: 'AI agents',
+    body: 'Agents that take over routine work. Processing documents, answering questions from a company knowledge base, sorting and preparing incoming requests.',
   },
 ];
 ---
@@ -25,16 +25,17 @@ const principles = [
     <p
       class="text-muted mb-6 text-[13px] font-medium tracking-[0.14em] uppercase"
     >
-      Independent software studio &middot; Colorado
+      TechAndDev LLC, Colorado
     </p>
     <h1
       class="max-w-4xl text-5xl leading-[1.05] font-semibold tracking-[-0.035em] text-balance md:text-7xl"
     >
-      Native software for Apple platforms.
+      Software, automation and AI agents.
     </h1>
     <p class="text-muted mt-8 max-w-2xl text-lg leading-relaxed md:text-xl">
-      {SITE.legalName} designs and develops focused utilities for macOS and iOS —
-      tools that do one thing well, respect your privacy, and stay out of your way.
+      {SITE.legalName} builds applications for desktop and mobile, automates business
+      processes and develops AI agents. We work on our own products and on projects
+      for clients.
     </p>
     <div class="mt-11 flex flex-wrap items-center gap-3">
       <a
@@ -52,17 +53,17 @@ const principles = [
     </div>
   </section>
 
-  <!-- Principles -->
+  <!-- Services -->
   <section class="border-line bg-surface/40 border-y">
     <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
       <h2
         class="max-w-2xl text-3xl leading-tight font-semibold tracking-[-0.025em] md:text-4xl"
       >
-        How we build.
+        What we do.
       </h2>
       <div class="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
         {
-          principles.map((item, i) => (
+          services.map((item, i) => (
             <div>
               <span class="text-muted text-[13px] font-medium tracking-wider">
                 {String(i + 1).padStart(2, '0')}
@@ -89,10 +90,10 @@ const principles = [
         <h2
           class="text-3xl leading-tight font-semibold tracking-[-0.025em] md:text-4xl"
         >
-          What we are working on.
+          Our products.
         </h2>
         <p class="text-muted mt-4 max-w-xl text-[17px] leading-relaxed">
-          Our first application is in active development. More will follow.
+          Applications we develop and publish under our own name.
         </p>
       </div>
       <a
@@ -121,10 +122,10 @@ const principles = [
       <h2
         class="mx-auto max-w-2xl text-3xl leading-tight font-semibold tracking-[-0.025em] text-balance md:text-4xl"
       >
-        Questions, feedback, or a partnership in mind?
+        Have a project or a question?
       </h2>
       <p class="text-muted mx-auto mt-5 max-w-xl text-[17px] leading-relaxed">
-        We read every message and usually reply within two business days.
+        Write to us and we will reply within two business days.
       </p>
       <a
         href="/support"

@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* Self-hosted variable font — no external requests, no third-party tracking. */
+/* Self-hosted variable font. No external requests, no third party tracking. */
 @import '@fontsource-variable/inter';
 
 @theme {

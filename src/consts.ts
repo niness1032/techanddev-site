@@ -6,15 +6,15 @@
 export const SITE = {
   /** Brand name shown in the header and page titles. */
   name: 'TechAndDev',
-  /** Full legal entity name — must appear in the footer and legal pages. */
+  /** Full legal entity name. Must appear in the footer and legal pages. */
   legalName: 'TechAndDev LLC',
   /** TODO: replace once the domain is registered. */
   domain: 'techanddev.com',
   url: 'https://techanddev.com',
-  tagline: 'Native software for Apple platforms',
+  tagline: 'Software development, automation and AI agents',
   description:
-    'TechAndDev LLC is an independent software studio in Colorado building focused, privacy-respecting applications for macOS and iOS.',
-  /** TODO: temporary address — replace with a real mailbox on the company domain. */
+    'TechAndDev LLC is a software development organization based in Colorado. We build applications, automation systems and AI agents.',
+  /** TODO: temporary address. Replace with a real mailbox on the company domain. */
   email: 'support@techanddev.com',
   /** Public location shown in the footer. */
   location: 'Colorado 80122, United States',
@@ -37,8 +37,8 @@ export const PRODUCTS = [
     name: 'VPN List',
     platform: 'macOS',
     status: 'In development',
-    tagline: 'Every VPN connection on your Mac, in one place.',
+    tagline: 'Several VPN profiles connected at the same time.',
     summary:
-      'A lightweight menu bar utility that keeps all of your VPN configurations in one list and lets you switch between them in a single click.',
+      'A VPN client that keeps every profile in one list and lets you run several connections at once. Works with WireGuard, OpenVPN and other protocols.',
   },
 ] as const;

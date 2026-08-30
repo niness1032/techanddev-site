@@ -32,11 +32,8 @@ const { slug, name, platform, status, tagline, summary } = Astro.props;
     <p class="text-muted mt-4 text-[15px] leading-relaxed">{summary}</p>
   </div>
   <span
-    class="text-ink mt-8 inline-flex items-center gap-1.5 text-[14px] font-medium"
+    class="text-ink group-hover:border-ink/40 mt-8 inline-block w-fit border-b border-transparent pb-0.5 text-[14px] font-medium transition-colors"
   >
     Learn more
-    <span class="transition-transform duration-300 group-hover:translate-x-1"
-      >&rarr;</span
-    >
   </span>
 </a>
