@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found" description="This page does not exist.">
+  <section
+    class="mx-auto flex max-w-6xl flex-col items-start px-6 pt-40 pb-32 md:pt-52"
+  >
+    <p
+      class="text-muted mb-6 text-[13px] font-medium tracking-[0.14em] uppercase"
+    >
+      Error 404
+    </p>
+    <h1
+      class="max-w-3xl text-4xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance md:text-6xl"
+    >
+      This page does not exist.
+    </h1>
+    <p class="text-muted mt-7 max-w-xl text-lg leading-relaxed">
+      The address may be mistyped, or the page may have been moved. Everything
+      we publish is reachable from the home page.
+    </p>
+    <a
+      href="/"
+      class="bg-ink text-canvas mt-10 inline-block rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
+    >
+      Go to the home page
+    </a>
+  </section>
+</Base>
