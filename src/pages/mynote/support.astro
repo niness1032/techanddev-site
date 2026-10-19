@@ -1,0 +1,101 @@
+---
+/**
+ * MYNOTE SUPPORT.
+ * This is the URL that goes into App Store Connect as the Support URL.
+ * TODO: replace the support address once the mailbox on the company domain exists.
+ */
+import Base from '../../layouts/Base.astro';
+import MyNoteNav from '../../components/MyNoteNav.astro';
+import { SITE } from '../../consts';
+
+const faq = [
+  {
+    q: 'How do I add a note as a widget?',
+    a: 'Touch and hold the Home Screen, tap Edit, then Add Widget, then MyNote. Choose a size, then tap the widget and pick a note. On Mac, right-click the desktop and choose Edit Widgets.',
+  },
+  {
+    q: 'My notes do not sync between devices.',
+    a: 'Make sure you are signed in to the same iCloud account on all devices and that iCloud Drive is on. The first sync can take a minute.',
+  },
+  {
+    q: 'How do I add a note to my Apple Watch face?',
+    a: 'Touch and hold the watch face, tap Edit, go to Complications, choose MyNote, then pick a note.',
+  },
+  {
+    q: 'Can I check off list items in the widget?',
+    a: 'Yes, on iPhone, iPad and Mac. On Apple Watch, tap the widget to open the note and check items there.',
+  },
+  {
+    q: 'Does MyNote collect my data?',
+    a: 'No. Nothing leaves your devices and your own iCloud account. The privacy policy has the details.',
+  },
+];
+---
+
+<Base
+  title="MyNote Support"
+  description="Help with MyNote for iPhone, iPad, Mac and Apple Watch. Contact the developer directly."
+>
+  <MyNoteNav />
+
+  <section class="mx-auto max-w-3xl px-6 pt-20 pb-8 md:pt-24">
+    <p class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase">
+      Support
+    </p>
+    <h1
+      class="mt-5 text-4xl leading-[1.08] font-semibold tracking-[-0.03em] md:text-5xl"
+    >
+      MyNote Support
+    </h1>
+    <p class="text-muted mt-7 text-lg leading-relaxed">
+      Write to us with a question, a bug or an idea. Messages go to the people
+      who build the app and are answered within two business days.
+    </p>
+
+    <div
+      class="border-line bg-surface/60 mt-10 rounded-2xl border px-8 py-10 md:px-10"
+    >
+      <p class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase">
+        Email
+      </p>
+      <a
+        href={`mailto:${SITE.email}`}
+        class="mt-4 inline-block text-2xl font-semibold tracking-tight underline underline-offset-[6px] transition-opacity hover:opacity-60 md:text-3xl"
+      >
+        {SITE.email}
+      </a>
+      <p class="text-muted mt-6 text-[15px] leading-relaxed">
+        {SITE.legalName}, {SITE.location}
+      </p>
+    </div>
+
+    <h2 class="mt-16 text-2xl font-semibold tracking-tight md:text-3xl">
+      Common questions
+    </h2>
+    <div class="mt-8 space-y-9">
+      {
+        faq.map((item) => (
+          <div>
+            <h3 class="text-[17px] font-semibold tracking-tight">{item.q}</h3>
+            <p class="text-muted mt-2.5 text-[16px] leading-relaxed">
+              {item.a}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="border-line mt-16 flex flex-wrap gap-8 border-t pt-8">
+      <a
+        href="/mynote"
+        class="text-ink text-[15px] underline underline-offset-4 transition-opacity hover:opacity-60"
+        >MyNote overview</a
+      >
+      <a
+        href="/mynote/privacy"
+        class="text-ink text-[15px] underline underline-offset-4 transition-opacity hover:opacity-60"
+        >Privacy Policy</a
+      >
+    </div>
+  </section>
+</Base>

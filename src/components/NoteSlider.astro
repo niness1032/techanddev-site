@@ -1,0 +1,177 @@
+---
+/**
+ * Slider for the three note types. Horizontal scroll with snap points,
+ * driven by plain DOM so the page needs no framework. Works without
+ * JavaScript too: the track stays scrollable and swipeable by hand.
+ */
+const slides = [
+  {
+    title: 'Text',
+    body: 'A plain note for anything you need to write down. Pick a font, pick a color, and that is the whole setup.',
+    image: '/screenshots/mynote/note-text.webp',
+    alt: 'A text note open in MyNote on iPhone',
+  },
+  {
+    title: 'List',
+    body: 'A checklist you can tick off in the app or straight from the widget. Checked items move out of your way.',
+    image: '/screenshots/mynote/note-list.webp',
+    alt: 'A shopping list in MyNote with two items checked off',
+  },
+  {
+    title: 'Drawing',
+    body: 'Draw with Apple Pencil or with a finger on iPhone and iPad. The full set of tools, nothing to configure.',
+    image: '/screenshots/mynote/note-drawing.webp',
+    alt: 'A drawing of mountains made in MyNote',
+  },
+];
+---
+
+<div class="note-slider relative">
+  <div
+    class="note-slider-track flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
+    tabindex="0"
+    aria-label="MyNote note types"
+  >
+    {
+      slides.map((slide, i) => (
+        <div class="w-full flex-none snap-center">
+          <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <div class="flex justify-center">
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                width="900"
+                height="1955"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                class="border-line h-[380px] w-auto rounded-[2rem] border md:h-[520px]"
+              />
+            </div>
+            <div class="text-center md:text-left">
+              <p class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase">
+                {String(i + 1).padStart(2, '0')}
+              </p>
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight md:text-4xl">
+                {slide.title}
+              </h3>
+              <p class="text-muted mx-auto mt-5 max-w-md text-[17px] leading-relaxed md:mx-0">
+                {slide.body}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="mt-12 flex items-center justify-center gap-7">
+    <button
+      type="button"
+      data-slider-prev
+      aria-label="Previous note type"
+      class="text-muted hover:text-ink text-[14px] font-medium transition-colors disabled:opacity-35"
+    >
+      Previous
+    </button>
+
+    <div class="flex items-center gap-2.5" role="tablist">
+      {
+        slides.map((slide, i) => (
+          <button
+            type="button"
+            data-slider-dot={i}
+            role="tab"
+            aria-label={slide.title}
+            class="h-2 w-2 rounded-full transition-colors"
+          />
+        ))
+      }
+    </div>
+
+    <button
+      type="button"
+      data-slider-next
+      aria-label="Next note type"
+      class="text-muted hover:text-ink text-[14px] font-medium transition-colors disabled:opacity-35"
+    >
+      Next
+    </button>
+  </div>
+</div>
+
+<style>
+  .note-slider-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .note-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.note-slider').forEach((root) => {
+    const track = root.querySelector('.note-slider-track');
+    const dots = Array.from(root.querySelectorAll('[data-slider-dot]'));
+    const prev = root.querySelector('[data-slider-prev]');
+    const next = root.querySelector('[data-slider-next]');
+    if (!track || dots.length === 0) return;
+
+    const count = dots.length;
+    let index = 0;
+
+    const paint = () => {
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        dot.classList.toggle('bg-ink', active);
+        dot.classList.toggle('bg-ink/20', !active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+      if (prev) prev.disabled = index === 0;
+      if (next) next.disabled = index === count - 1;
+    };
+
+    const goTo = (i) => {
+      index = Math.max(0, Math.min(count - 1, i));
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+      paint();
+    };
+
+    prev?.addEventListener('click', () => goTo(index - 1));
+    next?.addEventListener('click', () => goTo(index + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    track.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goTo(index + 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goTo(index - 1);
+      }
+    });
+
+    let frame = 0;
+    track.addEventListener(
+      'scroll',
+      () => {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          const width = track.clientWidth || 1;
+          const current = Math.round(track.scrollLeft / width);
+          if (current !== index) {
+            index = Math.max(0, Math.min(count - 1, current));
+            paint();
+          }
+        });
+      },
+      { passive: true },
+    );
+
+    window.addEventListener('resize', () => {
+      track.scrollLeft = index * track.clientWidth;
+    });
+
+    paint();
+  });
+</script>

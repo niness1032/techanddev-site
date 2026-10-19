@@ -1,0 +1,32 @@
+---
+const { pathname } = Astro.url;
+
+const links = [
+  { label: 'Overview', href: '/mynote' },
+  { label: 'Privacy', href: '/mynote/privacy' },
+  { label: 'Support', href: '/mynote/support' },
+];
+
+const isActive = (href: string) => pathname === href || pathname === `${href}/`;
+---
+
+<nav class="border-line bg-canvas mt-16 border-b" aria-label="MyNote">
+  <div class="mx-auto flex max-w-6xl gap-7 px-6">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+          class:list={[
+            'border-b-2 py-4 text-[14px] transition-colors',
+            isActive(link.href)
+              ? 'border-ink text-ink font-medium'
+              : 'text-muted hover:text-ink border-transparent',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>

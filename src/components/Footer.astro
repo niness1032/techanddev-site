@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
             PRODUCTS.map((product) => (
               <li>
                 <a
-                  href={`/products/${product.slug}`}
+                  href={product.href}
                   class="text-ink text-[14px] transition-opacity hover:opacity-60"
                 >
                   {product.name}

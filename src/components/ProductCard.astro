@@ -1,17 +1,17 @@
 ---
 interface Props {
-  slug: string;
+  href: string;
   name: string;
   platform: string;
   status: string;
   tagline: string;
   summary: string;
 }
-const { slug, name, platform, status, tagline, summary } = Astro.props;
+const { href, name, platform, status, tagline, summary } = Astro.props;
 ---
 
 <a
-  href={`/products/${slug}`}
+  href={href}
   class="group border-line bg-surface/50 hover:border-ink/15 hover:bg-surface flex flex-col justify-between rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-0.5 md:p-10"
 >
   <div>

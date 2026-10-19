@@ -1,0 +1,273 @@
+---
+/**
+ * MYNOTE LANDING PAGE.
+ *
+ * TODO before release:
+ *   1. Only the widgets section still uses <Placeholder>. It needs real
+ *      screenshots of Home Screen and desktop widgets.
+ *   2. app-icon.png is composed from the Icon Composer layers in
+ *      MyNote/screenshots/AppIcon.icon. Replace it with the official export.
+ *   3. Swap the "Coming soon" badge for the App Store badge and link.
+ *   4. Add the price once it is decided.
+ */
+import Base from '../../layouts/Base.astro';
+import MyNoteNav from '../../components/MyNoteNav.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import NoteSlider from '../../components/NoteSlider.astro';
+import { SITE } from '../../consts';
+
+const requirements = [
+  { label: 'iPhone and iPad', value: 'iOS and iPadOS 26 or later' },
+  { label: 'Mac', value: 'macOS 26 or later' },
+  { label: 'Apple Watch', value: 'watchOS 26 or later' },
+  { label: 'Developer', value: SITE.legalName },
+];
+---
+
+<Base
+  title="MyNote"
+  description="MyNote is a native notes app for iPhone, iPad, Mac and Apple Watch. Any note can live on your Home Screen as a widget. No account, no tracking."
+>
+  <MyNoteNav />
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 pt-20 pb-20 md:pt-28 md:pb-24">
+    <img
+      src="/screenshots/mynote/app-icon.png"
+      alt="MyNote app icon"
+      width="512"
+      height="512"
+      class="h-20 w-20 rounded-[1.25rem]"
+    />
+
+    <h1
+      class="mt-8 text-5xl leading-[1.05] font-semibold tracking-[-0.035em] md:text-6xl"
+    >
+      MyNote
+    </h1>
+    <p class="mt-6 max-w-2xl text-xl leading-relaxed text-balance md:text-2xl">
+      Your notes, right on your Home Screen. Simple and private.
+    </p>
+    <p class="text-muted mt-6 max-w-2xl text-[17px] leading-relaxed">
+      A native notes app for iPhone, iPad, Mac and Apple Watch. Write a note,
+      put it on your Home Screen, and it is there whenever you glance at your
+      phone.
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <span
+        class="border-line bg-surface text-muted inline-block rounded-full border px-6 py-3 text-[15px] font-medium"
+      >
+        Coming soon to the App Store
+      </span>
+      <a
+        href="/mynote/support"
+        class="text-ink text-[15px] font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+      >
+        Ask about testing
+      </a>
+    </div>
+
+    <div
+      class="mt-16 flex flex-col items-center gap-8 sm:flex-row sm:items-end sm:justify-center sm:gap-6"
+    >
+      <img
+        src="/screenshots/mynote/mac-home.webp"
+        alt="MyNote on a Mac, showing six notes side by side"
+        width="2400"
+        height="1500"
+        class="border-line w-full rounded-2xl border sm:h-[280px] sm:w-auto md:h-[400px]"
+      />
+      <img
+        src="/screenshots/mynote/iphone-home.webp"
+        alt="MyNote on iPhone, showing the list of notes"
+        width="900"
+        height="1955"
+        class="border-line w-1/2 max-w-[220px] rounded-[1.75rem] border sm:h-[280px] sm:w-auto sm:max-w-none md:h-[400px]"
+      />
+    </div>
+  </section>
+
+  <!-- Note types -->
+  <section class="border-line bg-surface/40 border-y">
+    <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <h2
+        class="text-3xl leading-tight font-semibold tracking-[-0.025em] md:text-4xl"
+      >
+        Three kinds of note.
+      </h2>
+      <div class="mt-14">
+        <NoteSlider />
+      </div>
+    </div>
+  </section>
+
+  <!-- Widgets -->
+  <section class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <h2
+      class="max-w-3xl text-3xl leading-tight font-semibold tracking-[-0.025em] text-balance md:text-4xl"
+    >
+      Any note can be a widget.
+    </h2>
+    <p class="text-muted mt-6 max-w-2xl text-[17px] leading-relaxed">
+      This is what MyNote is built around. Every note can go on the Home Screen,
+      the Mac desktop or the watch face, in four sizes: small, medium, large,
+      and extra large on iPad and Mac. Tap a widget and it opens that exact
+      note, not a list.
+    </p>
+    <p class="text-muted mt-4 max-w-2xl text-[17px] leading-relaxed">
+      Lists stay usable from the widget. Check items off on iPhone, iPad and Mac
+      without opening the app.
+    </p>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <Placeholder
+        label="Needed: iPhone Home Screen with MyNote widgets"
+        ratio="aspect-[3/4]"
+      />
+      <Placeholder
+        label="Needed: iPad Home Screen with MyNote widgets"
+        ratio="aspect-[3/4]"
+      />
+      <Placeholder
+        label="Needed: Mac desktop with MyNote widgets"
+        ratio="aspect-[3/4]"
+      />
+    </div>
+  </section>
+
+  <!-- Apple Watch -->
+  <section class="border-line bg-surface/40 border-y">
+    <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div>
+          <h2
+            class="text-3xl leading-tight font-semibold tracking-[-0.025em] md:text-4xl"
+          >
+            On your wrist.
+          </h2>
+          <p class="text-muted mt-6 text-[17px] leading-relaxed">
+            MyNote runs on Apple Watch as a full app, not a viewer. Browse your
+            notes, edit text, check items off, add new ones and delete them.
+          </p>
+          <p class="text-muted mt-4 text-[17px] leading-relaxed">
+            Put a note on the watch face as a complication or in the Smart
+            Stack, and it is one glance away.
+          </p>
+        </div>
+        <div class="flex justify-center gap-5 sm:gap-8">
+          <img
+            src="/screenshots/mynote/watch-notes.webp"
+            alt="The MyNote note list on Apple Watch"
+            width="422"
+            height="514"
+            class="border-line h-auto w-[44%] max-w-[210px] rounded-[1.75rem] border"
+          />
+          <img
+            src="/screenshots/mynote/watch-list.webp"
+            alt="A checklist open on Apple Watch with items checked off"
+            width="422"
+            height="514"
+            class="border-line h-auto w-[44%] max-w-[210px] rounded-[1.75rem] border"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Look and sync -->
+  <section class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <div class="grid gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
+          Make it yours
+        </h2>
+        <p class="text-muted mt-5 text-[17px] leading-relaxed">
+          Four note colors: Light, Paper, Sticky and Dark. App appearance
+          follows the system or stays locked to light or dark. Several fonts to
+          choose from, including handwritten ones.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
+          Synced through iCloud
+        </h2>
+        <p class="text-muted mt-5 text-[17px] leading-relaxed">
+          Notes sync between your devices through your own iCloud account.
+          Nothing to set up and no account to create. Write on the Mac, see it
+          on the watch.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section class="border-line bg-surface/40 border-y">
+    <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <h2
+        class="max-w-3xl text-3xl leading-tight font-semibold tracking-[-0.025em] text-balance md:text-4xl"
+      >
+        No account. No ads. No tracking. Your notes stay in your iCloud.
+      </h2>
+      <p class="text-muted mt-6 max-w-2xl text-[17px] leading-relaxed">
+        There is no sign-up, no analytics, no advertising and no third party
+        code in the app. We run no servers of our own, so your notes are never
+        sent to us. We cannot read them even if we wanted to.
+      </p>
+      <a
+        href="/mynote/privacy"
+        class="text-ink mt-8 inline-block text-[15px] font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+      >
+        Read the privacy policy
+      </a>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <div class="grid gap-12 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
+          Also in the app
+        </h2>
+        <ul class="text-muted mt-6 space-y-3 text-[17px] leading-relaxed">
+          <li>Search across every note.</li>
+          <li>Sort by edited date, created date, title or color.</li>
+          <li>Quick actions on the Home Screen icon to start a new note.</li>
+          <li>Keyboard shortcuts on Mac and iPad.</li>
+        </ul>
+      </div>
+
+      <aside class="border-line bg-surface/50 h-fit rounded-2xl border p-8">
+        <h3
+          class="text-muted text-[13px] font-medium tracking-[0.14em] uppercase"
+        >
+          Requirements
+        </h3>
+        <dl class="mt-6 space-y-5 text-[15px]">
+          {
+            requirements.map((item) => (
+              <div>
+                <dt class="text-muted">{item.label}</dt>
+                <dd class="mt-1 font-medium">{item.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </aside>
+    </div>
+
+    <div class="border-line mt-16 flex flex-wrap gap-8 border-t pt-8">
+      <a
+        href="/mynote/privacy"
+        class="text-ink text-[15px] underline underline-offset-4 transition-opacity hover:opacity-60"
+        >Privacy Policy</a
+      >
+      <a
+        href="/mynote/support"
+        class="text-ink text-[15px] underline underline-offset-4 transition-opacity hover:opacity-60"
+        >Support</a
+      >
+    </div>
+  </section>
+</Base>

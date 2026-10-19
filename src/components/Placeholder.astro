@@ -1,0 +1,20 @@
+---
+/**
+ * Marked slot for a screenshot that does not exist yet.
+ * Replace the component with an <img> once the real image is in /public/screenshots/.
+ */
+interface Props {
+  label: string;
+  ratio?: string;
+}
+const { label, ratio = 'aspect-[16/10]' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'border-line bg-surface/50 flex items-center justify-center rounded-2xl border border-dashed',
+    ratio,
+  ]}
+>
+  <p class="text-muted px-6 text-center text-[13px]">{label}</p>
+</div>
