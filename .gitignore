@@ -16,3 +16,6 @@ yarn-error.log*
 
 # macOS
 .DS_Store
+
+# local originals, not part of the site
+.screenshots-source/

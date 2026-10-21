@@ -3,8 +3,7 @@
  * MYNOTE LANDING PAGE.
  *
  * TODO before release:
- *   1. Only the widgets section still uses <Placeholder>. It needs real
- *      screenshots of Home Screen and desktop widgets.
+ *   1. Every screenshot on this page is real.
  *   2. app-icon.png is composed from the Icon Composer layers in
  *      MyNote/screenshots/AppIcon.icon. Replace it with the official export.
  *   3. Swap the "Coming soon" badge for the App Store badge and link.
@@ -12,9 +11,32 @@
  */
 import Base from '../../layouts/Base.astro';
 import MyNoteNav from '../../components/MyNoteNav.astro';
-import Placeholder from '../../components/Placeholder.astro';
 import NoteSlider from '../../components/NoteSlider.astro';
 import { SITE } from '../../consts';
+
+const widgetShots = [
+  {
+    image: '/screenshots/mynote/widget-iphone.webp',
+    alt: 'An iPhone Home Screen with a large MyNote shopping list widget',
+    caption: 'iPhone Home Screen',
+    width: 900,
+    height: 1955,
+  },
+  {
+    image: '/screenshots/mynote/widget-ipad.webp',
+    alt: 'An iPad Home Screen with a large MyNote drawing widget',
+    caption: 'iPad Home Screen',
+    width: 1100,
+    height: 1467,
+  },
+  {
+    image: '/screenshots/mynote/widget-mac.webp',
+    alt: 'A MyNote checklist widget on the Mac desktop',
+    caption: 'Mac desktop',
+    width: 820,
+    height: 1389,
+  },
+];
 
 const requirements = [
   { label: 'iPhone and iPad', value: 'iOS and iPadOS 26 or later' },
@@ -49,9 +71,9 @@ const requirements = [
       Your notes, right on your Home Screen. Simple and private.
     </p>
     <p class="text-muted mt-6 max-w-2xl text-[17px] leading-relaxed">
-      A native notes app for iPhone, iPad, Mac and Apple Watch. Write a note,
-      put it on your Home Screen, and it is there whenever you glance at your
-      phone.
+      One native app for iPhone, iPad, Mac and Apple Watch. Write a note, put it
+      on the Home Screen, the desktop or the watch face, and it is there
+      whenever you glance at any of your devices.
     </p>
 
     <div class="mt-10 flex flex-wrap items-center gap-4">
@@ -74,16 +96,16 @@ const requirements = [
       <img
         src="/screenshots/mynote/mac-home.webp"
         alt="MyNote on a Mac, showing six notes side by side"
-        width="2400"
-        height="1500"
-        class="border-line w-full rounded-2xl border sm:h-[280px] sm:w-auto md:h-[400px]"
+        width="1840"
+        height="1360"
+        class="w-full drop-shadow-[0_18px_40px_rgba(10,10,10,0.14)] sm:h-[280px] sm:w-auto md:h-[400px]"
       />
       <img
         src="/screenshots/mynote/iphone-home.webp"
         alt="MyNote on iPhone, showing the list of notes"
         width="900"
         height="1955"
-        class="border-line w-1/2 max-w-[220px] rounded-[1.75rem] border sm:h-[280px] sm:w-auto sm:max-w-none md:h-[400px]"
+        class="w-1/2 max-w-[220px] rounded-[1.75rem] drop-shadow-[0_18px_40px_rgba(10,10,10,0.14)] sm:h-[280px] sm:w-auto sm:max-w-none md:h-[400px]"
       />
     </div>
   </section>
@@ -120,19 +142,26 @@ const requirements = [
       without opening the app.
     </p>
 
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <Placeholder
-        label="Needed: iPhone Home Screen with MyNote widgets"
-        ratio="aspect-[3/4]"
-      />
-      <Placeholder
-        label="Needed: iPad Home Screen with MyNote widgets"
-        ratio="aspect-[3/4]"
-      />
-      <Placeholder
-        label="Needed: Mac desktop with MyNote widgets"
-        ratio="aspect-[3/4]"
-      />
+    <div
+      class="mt-14 flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-center md:gap-10"
+    >
+      {
+        widgetShots.map((shot) => (
+          <figure class="flex flex-col items-center">
+            <img
+              src={shot.image}
+              alt={shot.alt}
+              width={shot.width}
+              height={shot.height}
+              loading="lazy"
+              class="h-[360px] w-auto rounded-[1.5rem] drop-shadow-[0_18px_40px_rgba(10,10,10,0.14)] lg:h-[440px]"
+            />
+            <figcaption class="text-muted mt-6 text-[14px]">
+              {shot.caption}
+            </figcaption>
+          </figure>
+        ))
+      }
     </div>
   </section>
 
@@ -190,12 +219,13 @@ const requirements = [
       </div>
       <div>
         <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
-          Synced through iCloud
+          The same notes everywhere
         </h2>
         <p class="text-muted mt-5 text-[17px] leading-relaxed">
-          Notes sync between your devices through your own iCloud account.
-          Nothing to set up and no account to create. Write on the Mac, see it
-          on the watch.
+          One app across iPhone, iPad, Mac and Apple Watch, not a phone app with
+          companions. Start a note on the Mac, check an item off on the watch,
+          finish it on the phone. Syncing runs through your own Apple account,
+          so there is nothing to set up and no account to create.
         </p>
       </div>
     </div>
@@ -207,7 +237,7 @@ const requirements = [
       <h2
         class="max-w-3xl text-3xl leading-tight font-semibold tracking-[-0.025em] text-balance md:text-4xl"
       >
-        No account. No ads. No tracking. Your notes stay in your iCloud.
+        No account. No ads. No tracking. Your notes never reach us.
       </h2>
       <p class="text-muted mt-6 max-w-2xl text-[17px] leading-relaxed">
         There is no sign-up, no analytics, no advertising and no third party
