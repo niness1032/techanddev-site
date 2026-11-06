@@ -37,7 +37,10 @@ export const PRODUCTS = [
     href: '/mynote',
     name: 'MyNote',
     platform: 'iPhone, iPad, Mac, Watch',
-    status: 'Coming soon',
+    status: 'On the App Store',
+    appStoreUrl: 'https://apps.apple.com/us/app/mynote-widgets/id6825634007',
+    /** US price. Apple converts it per storefront. */
+    price: '$2.99',
     tagline: 'Your notes, right on your Home Screen.',
     summary:
       'A native notes app built around widgets. Any note can sit on the Home Screen, the Mac desktop or the watch face, so you see it without opening the app.',

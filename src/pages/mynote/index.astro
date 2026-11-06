@@ -6,13 +6,12 @@
  *   1. Every screenshot on this page is real.
  *   2. app-icon.png is composed from the Icon Composer layers in
  *      MyNote/screenshots/AppIcon.icon. Replace it with the official export.
- *   3. Swap the "Coming soon" badge for the App Store badge and link.
- *   4. Add the price once it is decided.
+ *   3. The store link and price come from the MyNote entry in consts.ts.
  */
 import Base from '../../layouts/Base.astro';
 import MyNoteNav from '../../components/MyNoteNav.astro';
 import NoteSlider from '../../components/NoteSlider.astro';
-import { SITE } from '../../consts';
+import { PRODUCTS, SITE } from '../../consts';
 
 const widgetShots = [
   {
@@ -38,10 +37,13 @@ const widgetShots = [
   },
 ];
 
+const product = PRODUCTS.find((item) => item.slug === 'mynote')!;
+
 const requirements = [
   { label: 'iPhone and iPad', value: 'iOS and iPadOS 26 or later' },
   { label: 'Mac', value: 'macOS 26 or later' },
   { label: 'Apple Watch', value: 'watchOS 26 or later' },
+  { label: 'Price', value: product.price },
   { label: 'Developer', value: SITE.legalName },
 ];
 ---
@@ -76,18 +78,16 @@ const requirements = [
       whenever you glance at any of your devices.
     </p>
 
-    <div class="mt-10 flex flex-wrap items-center gap-4">
-      <span
-        class="border-line bg-surface text-muted inline-block rounded-full border px-6 py-3 text-[15px] font-medium"
-      >
-        Coming soon to the App Store
-      </span>
+    <div class="mt-10 flex flex-wrap items-center gap-5">
       <a
-        href="/mynote/support"
-        class="text-ink text-[15px] font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+        href={product.appStoreUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-ink text-canvas inline-block rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
       >
-        Ask about testing
+        Download on the App Store
       </a>
+      <span class="text-muted text-[15px]">{product.price}</span>
     </div>
 
     <div
@@ -287,7 +287,18 @@ const requirements = [
       </aside>
     </div>
 
-    <div class="border-line mt-16 flex flex-wrap gap-8 border-t pt-8">
+    <div class="border-line mt-16 border-t pt-10">
+      <a
+        href={product.appStoreUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-ink text-canvas inline-block rounded-full px-7 py-3.5 text-[15px] font-medium transition-opacity hover:opacity-85"
+      >
+        Download on the App Store
+      </a>
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-8">
       <a
         href="/mynote/privacy"
         class="text-ink text-[15px] underline underline-offset-4 transition-opacity hover:opacity-60"
